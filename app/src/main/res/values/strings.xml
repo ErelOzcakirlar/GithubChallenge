@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">GithubChallenge</string>
+
+    <string name="dialog_title_error">Hata</string>
+    <string name="dialog_action_ok">Tamam</string>
 </resources>

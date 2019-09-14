@@ -1,4 +1,4 @@
-package com.erel.githubchallenge.core.injection.scopes
+package com.erel.githubchallenge.core.injection.util
 
 import javax.inject.Scope
 

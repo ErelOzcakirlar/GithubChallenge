@@ -7,7 +7,6 @@ data class DataHolder<Response>(
 )
 
 enum class DataHolderType {
-    LOADING,
     SUCCESS,
     FAIL
 }
