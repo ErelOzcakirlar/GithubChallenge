@@ -27,11 +27,9 @@ android {
     buildTypes {
         debug {
             buildConfigField "String", "BASE_URL", "\"https://api.github.com/\""
-            buildConfigField "String", "BASE_USER", "\"ErelOzcakirlar\""
         }
         release {
             buildConfigField "String", "BASE_URL", "\"https://api.github.com/\""
-            buildConfigField "String", "BASE_USER", "\"ErelOzcakirlar\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -47,7 +45,9 @@ dependencies {
 
     //Dagger
     implementation "com.google.dagger:dagger:$dagger"
+    implementation "com.google.dagger:dagger-android-support:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger"
+    kapt "com.google.dagger:dagger-android-processor:$dagger"
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit"

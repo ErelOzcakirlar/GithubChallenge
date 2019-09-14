@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.erel.githubchallenge">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".core.GithubApp"
         android:allowBackup="false"

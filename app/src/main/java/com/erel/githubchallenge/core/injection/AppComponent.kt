@@ -6,6 +6,7 @@ import com.erel.githubchallenge.core.injection.modules.DomainModule
 import com.erel.githubchallenge.core.injection.modules.PresentationModule
 import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 @Singleton
@@ -13,7 +14,8 @@ import javax.inject.Singleton
     modules = [
         DataModule::class,
         DomainModule::class,
-        PresentationModule::class
+        PresentationModule::class,
+        AndroidInjectionModule::class
     ]
 )
 
