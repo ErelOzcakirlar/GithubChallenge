@@ -2,27 +2,28 @@ package com.erel.githubchallenge.features.repo.presentation
 
 import android.os.Bundle
 import android.util.Log
+import com.erel.githubchallenge.core.domain.BaseInteractor
+import com.erel.githubchallenge.core.domain.DataHolderType
 import com.erel.githubchallenge.core.presentation.BaseActivity
-import com.erel.githubchallenge.features.repo.data.RepoRepository
+import com.erel.githubchallenge.features.repo.data.RepoRaw
+import com.erel.githubchallenge.features.repo.domain.GetRepoInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import javax.inject.Inject
 
 class RepoActivity: BaseActivity() {
 
     @Inject
-    lateinit var repoRepository: RepoRepository
+    lateinit var repoInteractor: BaseInteractor<GetRepoInteractor.Params, RepoRaw>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         GlobalScope.launch(Dispatchers.IO){
-            try {
-                val repo = repoRepository.getRepo("ErelOzcakirlar", "MovieDBChallenge")
-                Log.d("RepoDesc", "desc:${repo.owner?.profileImage.orEmpty()}")
-            }catch (ex: HttpException){
-                Log.d("RepoEx", "ex:${ex.response()?.errorBody()?.string()}")
+            val repo = repoInteractor.execute(GetRepoInteractor.Params("ErelOzcakirlar", "MovieDBChallenk"))
+            when(repo.type){
+                DataHolderType.SUCCESS -> Log.d("RepoDesc", "desc:${repo.data?.owner?.profileImage.orEmpty()}")
+                DataHolderType.FAIL -> Log.d("RepoEx", "ex:${repo.error}")
             }
 
         }
