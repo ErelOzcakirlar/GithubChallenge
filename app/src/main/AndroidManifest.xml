@@ -14,12 +14,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".features.repo.presentation.RepoActivity">
+        <activity android:name=".features.user.presentation.UserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".features.repo.presentation.RepoActivity"/>
 
     </application>
 </manifest>
