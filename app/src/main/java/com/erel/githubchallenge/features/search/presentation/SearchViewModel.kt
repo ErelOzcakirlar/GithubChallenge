@@ -2,6 +2,7 @@ package com.erel.githubchallenge.features.search.presentation
 
 import androidx.lifecycle.MutableLiveData
 import com.erel.githubchallenge.core.domain.BaseInteractor
+import com.erel.githubchallenge.core.extensions.EMPTY
 import com.erel.githubchallenge.core.presentation.BaseViewModel
 import com.erel.githubchallenge.features.repo.domain.RepoUI
 import com.erel.githubchallenge.features.search.domain.GetSearchInteractor
@@ -16,13 +17,13 @@ class SearchViewModel @Inject constructor(
     private val getSearchInteractor: BaseInteractor<GetSearchInteractor.Params, SearchUI>
 ) : BaseViewModel() {
 
-    private var waitingQuery = ""
+    private var waitingQuery = EMPTY
     private var totalItems = INITIAL_COUNT
     private var page = INITIAL_PAGE
 
     val reposLiveData = MutableLiveData<List<RepoUI>>()
 
-    var hasNextPage: Boolean = false
+    val hasNextPage: Boolean
         get() = reposLiveData.value?.size ?: INITIAL_COUNT < totalItems
 
     var isLoading: Boolean = false
@@ -68,6 +69,13 @@ class SearchViewModel @Inject constructor(
             newValue.addAll(it?.items ?: listOf())
             reposLiveData.value = newValue
         }
+    }
+
+    fun reset() {
+        waitingQuery = EMPTY
+        totalItems = INITIAL_COUNT
+        page = INITIAL_PAGE
+        reposLiveData.value = listOf()
     }
 
     companion object {

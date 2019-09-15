@@ -4,5 +4,9 @@
     <string name="dialog_title_error">Hata</string>
     <string name="dialog_action_ok">Tamam</string>
 
+    <!-- Search -->
+    <string name="menu_title_search">Arama</string>
+
+    <!-- User -->
     <string name="user_default_name">Bilinmeyen Kullanıcı</string>
 </resources>

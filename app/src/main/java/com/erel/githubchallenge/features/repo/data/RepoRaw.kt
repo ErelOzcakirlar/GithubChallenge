@@ -4,6 +4,7 @@ import com.erel.githubchallenge.features.user.data.UserRaw
 import com.google.gson.annotations.SerializedName
 
 data class RepoRaw (
+    @SerializedName("id") val id: Int?,
     @SerializedName("name") val name: String?,
     @SerializedName("description") val description: String?,
     @SerializedName("homepage") val homepage: String?,

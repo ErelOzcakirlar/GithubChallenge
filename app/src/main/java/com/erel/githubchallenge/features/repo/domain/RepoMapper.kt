@@ -10,6 +10,7 @@ class RepoMapper(
 ) : Mapper<RepoRaw, RepoUI> {
     override fun map(raw: RepoRaw) = with(raw) {
         RepoUI(
+            id ?: 0,
             name.orEmpty(),
             description.orEmpty(),
             homepage.orEmpty(),

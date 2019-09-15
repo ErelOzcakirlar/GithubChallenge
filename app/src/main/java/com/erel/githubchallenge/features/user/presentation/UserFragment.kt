@@ -33,7 +33,7 @@ class UserFragment : BaseFragment<UserViewModel>() {
 
     companion object {
 
-        private const val ARG_KEY_USER = "user"
+        const val ARG_KEY_USER = "user"
 
         fun newInstance(user: String) = UserFragment().apply {
             arguments = Bundle().apply {

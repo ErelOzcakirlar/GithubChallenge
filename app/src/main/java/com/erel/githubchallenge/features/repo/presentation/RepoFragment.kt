@@ -34,8 +34,8 @@ class RepoFragment : BaseFragment<RepoViewModel>() {
 
     companion object {
 
-        private const val ARG_KEY_USER = "user"
-        private const val ARG_KEY_REPO = "repo"
+        const val ARG_KEY_USER = "user"
+        const val ARG_KEY_REPO = "repo"
 
         fun newInstance(user: String, repo: String) = RepoFragment().apply {
             arguments = Bundle().apply {

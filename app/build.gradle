@@ -66,6 +66,8 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$lifecycle"
     implementation "android.arch.lifecycle:viewmodel:$lifecycle"
 
+    implementation "com.squareup.picasso:picasso:2.71828"
+
     testImplementation 'junit:junit:4.12'
 
     androidTestImplementation 'androidx.test:runner:1.2.0'
