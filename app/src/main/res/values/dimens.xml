@@ -6,4 +6,7 @@
     <dimen name="space_large">16dp</dimen>
 
     <dimen name="height_item_search_repo">80dp</dimen>
+    <dimen name="height_item_user_repo">80dp</dimen>
+    <dimen name="height_item_user">160dp</dimen>
+    <dimen name="size_user_photo">60dp</dimen>
 </resources>

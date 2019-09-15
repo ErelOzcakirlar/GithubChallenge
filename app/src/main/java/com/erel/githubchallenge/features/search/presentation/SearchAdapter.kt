@@ -41,7 +41,7 @@ class SearchRepoViewHolder(private val root: View) : RecyclerView.ViewHolder(roo
         userClickListener: (String) -> Unit,
         repoClickListener: (user:String, repo:String) -> Unit
     ) {
-        root.setOnClickListener { repoClickListener(item.owner.name, item.name) }
+        root.setOnClickListener { repoClickListener(item.owner.id, item.name) }
         root.imageOwnerAvatar.setOnClickListener { userClickListener(item.owner.id) }
         root.textRepoName.text = item.name
         root.textOwnerName.text = item.owner.id
