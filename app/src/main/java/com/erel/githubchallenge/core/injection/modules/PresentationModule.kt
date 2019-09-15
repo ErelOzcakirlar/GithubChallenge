@@ -3,6 +3,7 @@ package com.erel.githubchallenge.core.injection.modules
 import androidx.lifecycle.ViewModelProvider
 import com.erel.githubchallenge.core.presentation.ViewModelFactory
 import com.erel.githubchallenge.features.repo.presentation.RepoPresentationModule
+import com.erel.githubchallenge.features.search.presentation.SearchPresentationModule
 import com.erel.githubchallenge.features.user.presentation.UserPresentationModule
 import dagger.Binds
 import dagger.Module
@@ -10,7 +11,8 @@ import dagger.Module
 @Module(
     includes = [
         RepoPresentationModule::class,
-        UserPresentationModule::class
+        UserPresentationModule::class,
+        SearchPresentationModule::class
     ]
 )
 abstract class PresentationModule{

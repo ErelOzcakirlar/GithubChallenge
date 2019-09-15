@@ -16,16 +16,23 @@ open class BaseViewModel : ViewModel() {
     inline fun <Params, Response> runInteractor(
         interactor: BaseInteractor<Params, Response>,
         params: Params,
+        showProgress: Boolean = true,
+        crossinline fail: (String?) -> Unit = {},
         crossinline success: (Response?) -> Unit
     ) {
-        progressLiveData.value = true
+        if (showProgress) {
+            progressLiveData.value = true
+        }
         GlobalScope.launch(Dispatchers.IO) {
             val response = interactor.execute(params)
             GlobalScope.launch(Dispatchers.Main) {
                 progressLiveData.value = false
                 when (response.type) {
                     DataHolderType.SUCCESS -> success(response.data)
-                    DataHolderType.FAIL -> errorLiveData.value = response.error
+                    DataHolderType.FAIL -> {
+                        errorLiveData.value = response.error
+                        fail(response.error)
+                    }
                 }
             }
         }

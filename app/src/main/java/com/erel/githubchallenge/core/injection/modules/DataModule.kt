@@ -2,6 +2,7 @@ package com.erel.githubchallenge.core.injection.modules
 
 import com.erel.githubchallenge.BuildConfig
 import com.erel.githubchallenge.features.repo.data.RepoDataModule
+import com.erel.githubchallenge.features.search.data.SearchDataModule
 import com.erel.githubchallenge.features.user.data.UserDataModule
 import dagger.Module
 import dagger.Provides
@@ -18,7 +19,8 @@ import javax.inject.Singleton
 @Module(
     includes = [
         RepoDataModule::class,
-        UserDataModule::class
+        UserDataModule::class,
+        SearchDataModule::class
     ]
 )
 internal class DataModule {
