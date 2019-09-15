@@ -1,6 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageOwnerAvatar"
+                android:layout_width="@dimen/size_user_photo"
+                android:layout_height="@dimen/size_user_photo"
+                android:layout_margin="@dimen/space_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textRepoIdentifier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_large"
+                android:layout_marginTop="@dimen/space_large"
+                android:layout_marginEnd="@dimen/space_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageOwnerAvatar"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="ErelOzcakirlar/GithubChallenge" />
+
+            <TextView
+                android:id="@+id/textMail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:layout_marginEnd="@dimen/space_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textRepoIdentifier"
+                app:layout_constraintTop_toBottomOf="@+id/textRepoIdentifier"
+                tools:text="erel.ozcakirlar@mobven.com" />
+
+            <TextView
+                android:id="@+id/textLanguage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:layout_marginEnd="@dimen/space_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textRepoIdentifier"
+                app:layout_constraintTop_toBottomOf="@+id/textMail"
+                tools:text="Kotlin" />
+
+            <TextView
+                android:id="@+id/textStars"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:layout_marginEnd="@dimen/space_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textRepoIdentifier"
+                app:layout_constraintTop_toBottomOf="@+id/textLanguage"
+                tools:text="Stars: 5" />
+
+            <TextView
+                android:id="@+id/textForks"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:layout_marginEnd="@dimen/space_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textRepoIdentifier"
+                app:layout_constraintTop_toBottomOf="@+id/textStars"
+                tools:text="Forks: 2" />
+
+            <TextView
+                android:id="@+id/textWatchers"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:layout_marginEnd="@dimen/space_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textRepoIdentifier"
+                app:layout_constraintTop_toBottomOf="@+id/textForks"
+                tools:text="Watchers: 10" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

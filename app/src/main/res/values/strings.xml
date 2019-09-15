@@ -9,4 +9,10 @@
 
     <!-- User -->
     <string name="user_default_name">Bilinmeyen Kullanıcı</string>
+
+    <!-- Repo -->
+    <string name="repo_identifier_format">%s/%s</string>
+    <string name="repo_stars_format">Star: %d</string>
+    <string name="repo_forks_format">Fork: %d</string>
+    <string name="repo_watchers_format">Watcher: %d</string>
 </resources>

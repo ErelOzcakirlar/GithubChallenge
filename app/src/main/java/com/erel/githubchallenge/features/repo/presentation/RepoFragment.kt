@@ -5,6 +5,9 @@ import android.util.Log
 import androidx.lifecycle.Observer
 import com.erel.githubchallenge.R
 import com.erel.githubchallenge.core.presentation.BaseFragment
+import com.erel.githubchallenge.features.user.presentation.UserActivity
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_repo.*
 
 class RepoFragment : BaseFragment<RepoViewModel>() {
 
@@ -28,7 +31,16 @@ class RepoFragment : BaseFragment<RepoViewModel>() {
 
     override fun observeViewModel() = with(viewModel) {
         repoLiveData.observe(viewLifecycleOwner, Observer {
-            Log.d("Repo", "Avatar:${it.owner.profileImage}")
+            textRepoIdentifier.text = getString(R.string.repo_identifier_format, it.owner.id, it.name)
+            textMail.text = it.owner.email
+            textLanguage.text = it.language
+            textStars.text = getString(R.string.repo_stars_format, it.starsCount)
+            textForks.text = getString(R.string.repo_forks_format, it.forksCount)
+            textWatchers.text = getString(R.string.repo_watchers_format, it.watchersCount)
+            Picasso.get().load(it.owner.profileImage).fit().centerCrop().into(imageOwnerAvatar)
+            imageOwnerAvatar.setOnClickListener { _ ->
+                startActivity(UserActivity.callingIntent(requireContext(), it.owner.id))
+            }
         })
     }
 
