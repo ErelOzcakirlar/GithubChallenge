@@ -28,7 +28,7 @@ class RepoFragment : BaseFragment<RepoViewModel>() {
 
     override fun observeViewModel() = with(viewModel) {
         repoLiveData.observe(viewLifecycleOwner, Observer {
-            Log.d("Repo", "Avatar:${it.owner?.profileImage}")
+            Log.d("Repo", "Avatar:${it.owner.profileImage}")
         })
     }
 
